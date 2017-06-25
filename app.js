@@ -1,6 +1,7 @@
 
 
 function wordCount(text, element) {
+  text = text.replace(/\r?\n|\r/g, "")
   text = text.split(' ')
   let count = text.length
   element.html(count)
@@ -8,6 +9,7 @@ function wordCount(text, element) {
 
 function uniqueCount(text, element) {
   let hash = {}
+  text = text.replace(/\r?\n|\r/g, "")
   text = text.split(' ')
   for(let i=0;i<text.length;i++) {
     if(text[i] in hash) {
@@ -18,12 +20,14 @@ function uniqueCount(text, element) {
     }
   }
   let result = Object.keys(hash).length
+  console.log(hash)
   element.html(result)
 }
 
 function averageWordLength(text, element) {
   let sum = 0
   let hash = {}
+  text = text.replace(/\r?\n|\r/g, "")
   text = text.split(' ')
   for(let i=0;i<text.length;i++) {
     hash[text[i]] = text[i].length
@@ -33,6 +37,7 @@ function averageWordLength(text, element) {
 }
   let result = sum / Object.keys(hash).length
   result = result.toString().slice(0,3)
+  console.log(hash)
   element.html(result)
 }
 
